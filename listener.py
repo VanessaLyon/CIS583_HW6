@@ -64,7 +64,7 @@ def scanBlocks(chain,start_block,end_block,contract_address):
                 recipient = event['args']['recipient']
                 amount = event['args']['amount']
                 tx_hash = event.transactionHash.hex()
-                address = contract_address.hex()
+                address = contract_address
                 writer.writerow([chain, token, recipient, amount, tx_hash, address])
         else:
             for block_num in range(start_block,end_block+1):
@@ -75,5 +75,5 @@ def scanBlocks(chain,start_block,end_block,contract_address):
                     recipient = event['args']['recipient']
                     amount = event['args']['amount']
                     tx_hash = event.transactionHash.hex()
-                    address = contract_address.hex()
+                    address = contract_address
                     writer.writerow([chain, token, recipient, amount, tx_hash, address])
